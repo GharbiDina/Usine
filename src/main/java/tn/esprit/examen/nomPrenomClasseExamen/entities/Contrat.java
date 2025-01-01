@@ -23,4 +23,7 @@ public class Contrat {
     TypeContrat type;
     Date dateDebut;
     Date dateFin;
+    @OneToOne(mappedBy="contrat")
+    private Employe employe;
+
 }

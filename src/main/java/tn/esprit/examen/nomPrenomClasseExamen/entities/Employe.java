@@ -23,4 +23,7 @@ public class Employe {
     Date dateNaissance;
     @Enumerated(EnumType.STRING)
     Sexe sexe;
+    @OneToOne
+    private Contrat contrat;
+
 }
