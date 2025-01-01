@@ -1,8 +1,10 @@
 package tn.esprit.examen.nomPrenomClasseExamen.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.examen.nomPrenomClasseExamen.entities.Client;
+import tn.esprit.examen.nomPrenomClasseExamen.entities.Employe;
 import tn.esprit.examen.nomPrenomClasseExamen.entities.Usine;
 import tn.esprit.examen.nomPrenomClasseExamen.services.IServices;
 
@@ -24,5 +26,20 @@ public class ClientRestController {
         Usine programme = services.ajouterUsine(p);
         return programme;
     }
+    @PostMapping("/creerEtAffecterEmploye")
+    public ResponseEntity<String> ajouterEmployesEtAffecterAUsine(
+            @RequestParam Long usineId,
+            @RequestBody List<Employe>employes )  {
+        services.ajouterEmployesEtAffecterAUsine(usineId, employes);
+        return ResponseEntity.ok("Logistique ajoutée et associée avec succès !");
 
+
+    }
+    @PutMapping("/affecterContratEmploye/{contrat}/{empl}")
+    public void affecterContratAEmploye(@PathVariable("contrat") Long contrat,
+                                             @PathVariable("empl") Long empl) {
+        services.affecterContratAEmploye(contrat, empl);
+
+
+    }
 }

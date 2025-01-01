@@ -12,4 +12,5 @@ public interface IServices {
     void test();
     public void ajouterEmployesEtAffecterAUsine(long usineId, List<Employe>
             employes) ;
+    public void affecterContratAEmploye(long contratId, long employeId) ;
 }
