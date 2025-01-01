@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -22,7 +23,7 @@ public class Usine {
     String adresse;
     int telephone;
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<Employe> Employes;
+    private List<Employe> Employes;
 
 
 }

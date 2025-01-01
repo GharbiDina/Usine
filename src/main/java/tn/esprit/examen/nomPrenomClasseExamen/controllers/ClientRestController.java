@@ -3,6 +3,7 @@ package tn.esprit.examen.nomPrenomClasseExamen.controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.examen.nomPrenomClasseExamen.entities.Client;
+import tn.esprit.examen.nomPrenomClasseExamen.entities.Usine;
 import tn.esprit.examen.nomPrenomClasseExamen.services.IServices;
 
 import java.util.List;
@@ -16,6 +17,12 @@ public class ClientRestController {
     @PostMapping("/add")
     public Client add(@RequestBody Client client){
         return  services.add(client);
+    }
+
+    @PostMapping("/ajouterusine")
+    public Usine ajouterProgrammeEtChaine(@RequestBody Usine p) {
+        Usine programme = services.ajouterUsine(p);
+        return programme;
     }
 
 }
